@@ -23,7 +23,9 @@ export class RecipeService {
           ])
     ];
 
-    recipeSelected = new EventEmitter<Recipe>();
+    // this code is no longer required since selecting is recipe is handled by routing and query params
+    // recipeSelected = new EventEmitter<Recipe>();
+
 
     constructor (private slService: ShoppingListService) {
 

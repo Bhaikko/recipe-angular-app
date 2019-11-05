@@ -10,13 +10,12 @@ import { RecipeService } from './recipes.service';
 })
 export class RecipesComponent implements OnInit {
 
-  selectedRecipe: Recipe;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor() { }
 
   ngOnInit() {
     // subscribe is used to listen for event being emitted from anywhere in the app
-    this.recipeService.recipeSelected.subscribe((recipe: Recipe) => this.selectedRecipe = recipe);
+    // this.recipeService.recipeSelected.subscribe((recipe: Recipe) => this.selectedRecipe = recipe);
   }
 
   
