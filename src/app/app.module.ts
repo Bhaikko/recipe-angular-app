@@ -9,11 +9,8 @@ import { HeaderComponent } from './header/header.component';
 
 // Services
 import { AppRoutingModule } from './app-routing.module';
-import { RecipesModule } from './recipes/recipes.module';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
-import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   // declarations contains all the components, directives and custom pipes
@@ -27,11 +24,11 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    RecipesModule,
-    ShoppingListModule,
+    // RecipesModule, // not to include when lazy loading
+    // ShoppingListModule,
     SharedModule,
     CoreModule,
-    AuthModule
+    // AuthModule
   ],
 
   // providers include all the services. Unlike modules specified in imports, servies are not needed to define in every separate module
