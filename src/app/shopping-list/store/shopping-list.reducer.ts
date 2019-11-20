@@ -2,23 +2,19 @@ import { Ingredient } from '../../shared/ingredient.model';
 import * as ShoppingListActions from './shopping-list.actions';
 
 export interface State {
-    ingredients: Ingredient[],
-    editedIngredient: null,
-    editedIngredientIndex: -1
-}
-
-export interface AppState {
-    shoppingList: State
+    ingredients: Ingredient[];
+    editedIngredient: Ingredient;
+    editedIngredientIndex: number;
 }
 
 const initialState: State = {
-    editedIngredient: null,
-    editedIngredientIndex: -1,
     ingredients: [
         new Ingredient("Potato", 5),
         new Ingredient("Tomato", 6),
         new Ingredient("Apples", 4)
-    ]
+    ],
+    editedIngredient: null,
+    editedIngredientIndex: -1,
 }
 
 
@@ -33,7 +29,7 @@ export const shoppingListReducer = (state = initialState, action: ShoppingListAc
 
         case ShoppingListActions.ADD_INGREDIENTS:
             return {
-                state,
+                ...state,
                 ingredients: [...state.ingredients, ...action.payload]
             }
 

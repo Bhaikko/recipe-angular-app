@@ -4,6 +4,9 @@ import { catchError, tap } from 'rxjs/operators';
 import { throwError, BehaviorSubject } from 'rxjs';
 import { User } from './user.model';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as fromApp from './../store/app.reducer';
+import * as AuthActions from './store/auth.actions';
 
 // interfaces are used to define the output datatype of a function rather than typing it along the function
 export interface AuthResponseData {
@@ -20,9 +23,9 @@ export interface AuthResponseData {
     providedIn: "root"
 })
 export class AuthService {
-    user = new BehaviorSubject<User>(null); // subjects can be used to "reactively" update UI
+    // user = new BehaviorSubject<User>(null); // subjects can be used to "reactively" update UI
 
-    constructor (private http: HttpClient, private router: Router) {
+    constructor (private http: HttpClient, private router: Router, private store: Store<fromApp.AppState>) {
 
     }
 
@@ -66,12 +69,19 @@ export class AuthService {
 
     private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
         const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
-        const user = new User(email, userId, token, expirationDate);
-        this.user.next(user);
+        // const user = new User(email, userId, token, expirationDate);
+        // this.user.next(user);
+        this.store.dispatch(new AuthActions.AuthenticateSuccess({
+            email: email,
+            userId: userId,
+            token: token,
+            expirationDate: expirationDate
+        }));
     }
 
     logout () {
-        this.user.next(null);
-        this.router.navigate(['/auth']);
+        // this.user.next(null);
+        this.store.dispatch(new AuthActions.Logout());
+        // this.router.navigate(['/auth']);
     }
 }
