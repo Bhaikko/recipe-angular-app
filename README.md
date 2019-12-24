@@ -1,27 +1,42 @@
 # RecipeBook
+RecipeBook is a Single Page application where users can save recipes and shopping items.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.14.
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## Development server
+## Prerequisites
+Before running the server on your local machine, following *npm packages* must be installed in the same directory where you have cloned the project.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**requirements**
+* nodejs
 
-## Code scaffolding
+**Frameworks Used**
+* Angular 8
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Frontend Setup
+**Angular cli** must be installed for testing frontend.
 
-## Build
+To install packages, run
+```
+  npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To Run Development server of angular, run
+```
+  npm start
+```
+OR
+```
+  ng serve
+```
 
-## Running unit tests
+## Backend And Database Setup
+**For Backend, the application uses Firebase for Api as well as Database**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Screenshots
 
-## Running end-to-end tests
+### Recipe List
+<a href="https://imgur.com/DfgvbOn"><img src="https://i.imgur.com/DfgvbOn.png" title="source: imgur.com" /></a>
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Shopping List
+<a href="https://imgur.com/GrfsPIW"><img src="https://i.imgur.com/GrfsPIW.png" title="source: imgur.com" /></a>
